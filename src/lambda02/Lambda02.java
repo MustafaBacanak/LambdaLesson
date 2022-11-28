@@ -1,3 +1,7 @@
+package lambda02;
+
+import lambda01.Lambda01;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,9 +35,9 @@ public class Lambda02 {
     public static void ciftKarePrint(List<Integer> sayi) {
         sayi.
                 stream().
-                filter(Lambda01::ciftBul). //Lambda01 classinda olusturdugumuz cift bulma methodunu cagirdik.
+                filter(Lambda01::ciftBul). //lambda01.Lambda01 classinda olusturdugumuz cift bulma methodunu cagirdik.
                 map(t -> t * t). //stream() icerisindeki elemanlari baska degerlere donusturur.(16,4,36)
-                forEach(Lambda01::yazdir); //Lambda01 classinda olusturdugumuz yazdir methodunu cagirdik.
+                forEach(Lambda01::yazdir); //lambda01.Lambda01 classinda olusturdugumuz yazdir methodunu cagirdik.
 
     }
 
@@ -56,7 +60,7 @@ public class Lambda02 {
         sayi.
                 stream().
                 filter(Lambda01::ciftBul).
-                map(Math::sqrt). //double döndürür. O yüzden Lambda01 classindan yazdir(int a) methodu kullanilmaz
+                map(Math::sqrt). //double döndürür. O yüzden lambda01.Lambda01 classindan yazdir(int a) methodu kullanilmaz
                 forEach(t -> System.out.print(String.format("%.2f", t) + " "));
 
     }

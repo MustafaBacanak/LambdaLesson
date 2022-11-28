@@ -1,3 +1,5 @@
+package lambda01;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,6 +71,9 @@ public class Lambda01 {
     // Kendimiz bir method olusturalim
 
     public static void yazdir(int a) {
+        System.out.print(a + " ");
+    }
+    public static void yazdir(String a) {
         System.out.print(a + " ");
     }
 
