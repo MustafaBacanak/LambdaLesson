@@ -17,6 +17,7 @@ public class Lambda01 {
       4)  Lambda sadece collections'larda(List, Queue ve Set) ve array'lerde kullanilabilir ancak map'lerde kullanılmaz.
 
                       * Yazili Olmayan Kural *
+
       * Lambda kullanirken mumkun mertebe "lambda expression"dan kacinilmasi önerilir.
       * Eger mumkunse "method referance" kullanilmasi tavsiye edilir.
 
@@ -40,6 +41,8 @@ public class Lambda01 {
         printCiftOtzKckStructured(sayi);
         System.out.println("\n * * *");
         printCiftOtzBykFunctional(sayi);
+
+
     }
 
     //TASK  : "Structured Programming" kullanarak list elemanlarını aynı satirda
@@ -54,10 +57,10 @@ public class Lambda01 {
     //TASK  : "Functional Programming" kullanarak list elemanlarını aynı satirda
     //        aralarında bosluk olacak sekilde print ediniz.
 
-    public static void printElFunctional(List<Integer> sayi) {
+    public static void printElFunctional(List<Integer> degerler) {
 
-        sayi.
-                stream().
+        degerler.
+                stream(). // Akısı baslatır.
                 forEach((x) -> System.out.print(x + " ")); // lambda expression
     }
 
@@ -122,7 +125,8 @@ public class Lambda01 {
     public static void printCiftOtzKckFunctional(List<Integer> sayi) {
         sayi.
                 stream().
-                filter(t -> t % 2 == 0 && t < 34).
+//                filter(t -> t % 2 == 0 && t < 34).
+                filter( t-> t<34 && t%2 == 0).
                 forEach(Lambda01::yazdir);
     }
 

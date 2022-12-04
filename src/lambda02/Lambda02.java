@@ -31,19 +31,17 @@ public class Lambda02 {
 
     // Task-1 : Functional Programming ile listin cift elemanlarinin karelerini
     //          ayni satirda aralarina bosluk bırakarak print ediniz.
-
     public static void ciftKarePrint(List<Integer> sayi) {
         sayi.
                 stream().
-                filter(Lambda01::ciftBul). //lambda01.Lambda01 classinda olusturdugumuz cift bulma methodunu cagirdik.
-                map(t -> t * t). //stream() icerisindeki elemanlari baska degerlere donusturur.(16,4,36)
-                forEach(Lambda01::yazdir); //lambda01.Lambda01 classinda olusturdugumuz yazdir methodunu cagirdik.
+                filter(Lambda01::ciftBul). //lambda01 classinda olusturdugumuz cift bulma methodunu cagirdik.
+                map(t -> t * t). // Akıs icerisindeki elemanlari baska degerlere donusturur.(16,4,36)
+                forEach(Lambda01::yazdir); //lambda01 classinda olusturdugumuz yazdir methodunu cagirdik.
 
     }
 
     // Task-2 : Functional Programming ile listin tek elemanlarinin  kuplerinin bir fazlasini
     //        ayni satirda aralarina bosluk birakarak print edi
-
     public static void tekKupBirFazlaPrint(List<Integer> sayi) {
         sayi.
                 stream().
@@ -55,18 +53,16 @@ public class Lambda02 {
 
     // Task-3 : Functional Programming ile listin cift elemanlarinin
     //          karekoklerini ayni satirda aralarina bosluk birakarak yazdiriniz.
-
     public static void ciftKarekokPrint(List<Integer> sayi) {
         sayi.
                 stream().
                 filter(Lambda01::ciftBul).
-                map(Math::sqrt). //double döndürür. O yüzden lambda01.Lambda01 classindan yazdir(int a) methodu kullanilmaz
+                map(Math::sqrt). //double döndürür. O yüzden lambda01 classindan yazdir(int a) methodu kullanilmaz
                 forEach(t -> System.out.print(String.format("%.2f", t) + " "));
 
     }
 
     // Task-4 : list'in en buyuk elemanini yazdiriniz
-
     public static void maxElBul(List<Integer> sayi) {
         Optional<Integer> maxSayi = sayi.
                 stream().
@@ -87,7 +83,6 @@ public class Lambda02 {
     }
 
     // Task-5 : List'in cift elemanlarin karelerinin en buyugunu print ediniz
-
     public static void ciftEnBuyukElKaresi(List<Integer> sayi) {
         System.out.println(sayi.
                 stream().
@@ -97,21 +92,20 @@ public class Lambda02 {
     }
 
     // Task-6: List'teki tum elemanlarin toplamini yazdiriniz.Lambda Expression...
-
+    public static void tumElToplami(List<Integer> sayi) {
+        int toplam = sayi.
+                stream().
+                reduce(0, (a, b) -> a + b);
+        System.out.println("toplam = " + toplam);
     /*
         * a ilk degerini her zaman atanan degerden (ilk parametre) alır,
           bu örnekte 0 oluyor
         * b degerini her zamana  stream()'dan akısdan alır
         * a ilk degerinden sonraki her değeri action(işlem)'dan alır
     */
-    public static void tumElToplami(List<Integer> sayi) {
-        int toplam = sayi.
-                stream().reduce(0, (a, b) -> a + b);
-        System.out.println("toplam = " + toplam);
-    }
+}
 
     // Task-7: List'teki cift elemanlarin carpimini yazdiriniz.
-
     public static void cifCarpim(List<Integer> sayi) {
         System.out.println(sayi.
                 stream().
@@ -125,16 +119,14 @@ public class Lambda02 {
     }
 
     // Task-8 : List'teki elemanlardan en kucugunu  print ediniz.
-
     public static void enKucuk(List<Integer> sayi) {
 
         //1.Yol : Method Referance
-
         System.out.println(sayi.
                 stream().
                 reduce(Integer::min));//Math::min
-        //2.Yol : Method Referance
 
+        //2.Yol : Method Referance
         System.out.println(sayi.
                 stream().
                 reduce(Lambda02::minSayi));

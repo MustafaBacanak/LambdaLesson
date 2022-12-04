@@ -1,9 +1,6 @@
 package lambda03;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Lambda04 {
@@ -30,6 +27,9 @@ public class Lambda04 {
         System.out.println(notOrt74BykUnv(unv));
         System.out.println(hukukAra(unv));
         System.out.println(bKSirala(unv));
+        System.out.println(matBolumSayisi(unv));
+        System.out.println(notOrt(unv));
+        System.out.println(enKucukNotOrt(unv));
 
     }
 
@@ -46,9 +46,10 @@ public class Lambda04 {
     public static boolean hukukAra(List<Univercity> unv) {
 
         return unv.
-                stream().
-                anyMatch(t -> t.getBolum().
-                        contains("Hukuk"));
+                stream().//Akıs basladı
+                anyMatch(t -> t.getBolum().//Objelerin bolum isimleri alındı
+                        toUpperCase().//Olası her ihtimale karsı kucuk harf yapıldı
+                        contains("Hukuk"));//Aranan bolum var mı diye kontrol edildi.
     }
 
     // Task 03--> Universite'leri ogr sayilarina gore b -> k siralayiniz.
@@ -59,6 +60,36 @@ public class Lambda04 {
                 stream().
                 sorted(Comparator.comparing(Univercity::getOgrSayisi).reversed()).
                 collect(Collectors.toList());
+
+    }
+
+    // Task 04--> "Hukuk" bolumlerinin sayisini  print ediniz.
+
+    public static int matBolumSayisi (List<Univercity> unv){
+        return (int) unv.
+                stream().
+                filter(t->t.getBolum().equalsIgnoreCase("Hukuk")).
+                count();
+    }
+
+    // Task 05--> Ogrenci sayilari 550'dan fazla olan universite'lerin en buyuk notOrt'unu bulunuz.
+
+    public static OptionalInt notOrt(List<Univercity> unv){
+
+        return unv.
+                stream().
+                filter(t->t.getOgrSayisi()>550).
+                mapToInt(Univercity::getNotOrt).
+                max();
+    }
+
+    // Task 06--> Ogrenci sayilari 1050'dan az olan universite'lerin en kucuk notOrt'unu bulunuz.
+    public static OptionalInt enKucukNotOrt(List<Univercity> unv){
+        return unv.
+                stream().
+                filter(t->t.getOgrSayisi()<1050).
+                mapToInt(Univercity::getNotOrt).
+                min();
 
     }
 

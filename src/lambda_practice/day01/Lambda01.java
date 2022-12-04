@@ -1,4 +1,4 @@
-package lambda_practice;
+package lambda_practice.day01;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,10 +38,7 @@ public class Lambda01 {
         System.out.println("elToplamReference(list) = " + elToplamReference(list));
         System.out.println("elToplamReferenceInt(list) = " + elToplamReferenceInt(list));
         pozElTop(list);
-
-
     }
-
 
     // S1: Listi aralarinda bosluk birakarak yazdiriniz
 
@@ -85,8 +82,11 @@ public class Lambda01 {
     // S7: List'in cift elemanlarinin kup'lerini yazdirin
 
     public static void ciftKupYazdir(List<Integer>l){
-
-        l.stream().filter(t->t%2==0).map(t->t*t*t).forEach(t-> System.out.print(t+" "));
+        l.
+                stream().
+                filter(t->t%2==0).
+                map(t->t*t*t).
+                forEach(t-> System.out.print(t+" "));
     }
 
     // S8: listin elemanlarin karelerinden tekrarsiz yazdıralım
