@@ -32,6 +32,7 @@ public class Lambda02 {
     // Task-1 : Functional Programming ile listin cift elemanlarinin karelerini
     //          ayni satirda aralarina bosluk bırakarak print ediniz.
     public static void ciftKarePrint(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(Lambda01::ciftBul). //lambda01 classinda olusturdugumuz cift bulma methodunu cagirdik.
@@ -43,6 +44,7 @@ public class Lambda02 {
     // Task-2 : Functional Programming ile listin tek elemanlarinin  kuplerinin bir fazlasini
     //        ayni satirda aralarina bosluk birakarak print edi
     public static void tekKupBirFazlaPrint(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(t -> t % 2 != 0).
@@ -54,6 +56,7 @@ public class Lambda02 {
     // Task-3 : Functional Programming ile listin cift elemanlarinin
     //          karekoklerini ayni satirda aralarina bosluk birakarak yazdiriniz.
     public static void ciftKarekokPrint(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(Lambda01::ciftBul).
@@ -64,6 +67,7 @@ public class Lambda02 {
 
     // Task-4 : list'in en buyuk elemanini yazdiriniz
     public static void maxElBul(List<Integer> sayi) {
+
         Optional<Integer> maxSayi = sayi.
                 stream().
                 reduce(Math::max); //Eger result tek bir deger ise reduce terminal opt. kullanilir.
@@ -72,6 +76,7 @@ public class Lambda02 {
 
     // Structured kullanarak yapalim
     public static void structuredMaxElBul(List<Integer> sayi) {
+
         int max = Integer.MIN_VALUE;
 
         for (int i = 0; i < sayi.size(); i++) {
@@ -84,6 +89,7 @@ public class Lambda02 {
 
     // Task-5 : List'in cift elemanlarin karelerinin en buyugunu print ediniz
     public static void ciftEnBuyukElKaresi(List<Integer> sayi) {
+
         System.out.println(sayi.
                 stream().
                 filter(Lambda01::ciftBul).
@@ -93,6 +99,7 @@ public class Lambda02 {
 
     // Task-6: List'teki tum elemanlarin toplamini yazdiriniz.Lambda Expression...
     public static void tumElToplami(List<Integer> sayi) {
+
         int toplam = sayi.
                 stream().
                 reduce(0, (a, b) -> a + b);
@@ -107,6 +114,7 @@ public class Lambda02 {
 
     // Task-7: List'teki cift elemanlarin carpimini yazdiriniz.
     public static void cifCarpim(List<Integer> sayi) {
+
         System.out.println(sayi.
                 stream().
                 filter(Lambda01::ciftBul).
@@ -140,6 +148,7 @@ public class Lambda02 {
 
     // Task-9 : List'teki 5'ten buyuk en kucuk tek sayiyi print ediniz.
     public static void bestenBykTekKucuk(List<Integer> sayi) {
+
         System.out.println(sayi.
                 stream().
                 filter(t -> (t % 2 == 1) && (t > 5)).
@@ -148,6 +157,7 @@ public class Lambda02 {
 
     // Task-10 : list'in cift  elemanlarinin karelerini  kucukten buyuge print ediniz.
     public static void ciftElKareKBSort(List<Integer> sayi) {
+
         sayi.
                 stream(). // Akisi baslattik.
                 filter(Lambda01::ciftBul). // Akis icinde cift sayilari aldik.

@@ -24,6 +24,7 @@ public class Lambda05 {
 
     // Structured
     public static int topla(int x) {
+
         int toplam = 0;
         for (int i = 0; i <= x; i++) {
             toplam += i;
@@ -54,7 +55,6 @@ public class Lambda05 {
     public static int ilkPozitifCiftTop(int x) {
 
 //         1.Yol
-
 //        return IntStream.
 //                rangeClosed(1, x).
 //                limit(x).
@@ -62,7 +62,6 @@ public class Lambda05 {
 //                sum();
 
          //2.Yol
-
         return IntStream. // int akıs baslatır.
                 iterate(2, t -> t + 2). // ilk parametreden baslar, belirtilen şekilde sonsuza kadar gider
                 limit(x).// x değerine kadar gider (sınırlar)
@@ -90,6 +89,7 @@ public class Lambda05 {
 
     //TASK 06 --> Istenilen bir sayinin ilk x kuvvetini ekrana yazdiran programi  create ediniz.
     public static void istSayininXKuvveti (int istenenSayi,int x ){
+
         IntStream.
                 iterate(istenenSayi,t->t*istenenSayi).
                 limit(istenenSayi).

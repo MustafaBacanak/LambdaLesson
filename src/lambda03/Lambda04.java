@@ -22,6 +22,12 @@ public class Lambda04 {
         Univercity u04 = new Univercity("Hacettepe", "Tıp", 230, 88);
         Univercity u05 = new Univercity("Gazi", "Hukuk", 1540, 50);
 
+        /*
+            - Objelerden olusan bir ArrayList olusturduk ve data type olarak class ismi aldık.
+            - Bizim elimizde univercity classindaki objeler var. (u01,u02,u03,u04,u05)
+            - Bunlar üzerinden çalışmalar yapıcaz. Integer ya da String degerlerle degil.
+         */
+
         List<Univercity> unv = new ArrayList<>(Arrays.asList(u01, u02, u03, u04, u05));
 
         System.out.println(notOrt74BykUnv(unv));
@@ -33,39 +39,39 @@ public class Lambda04 {
 
     }
 
-    // Task 02--> Tum universitelerin notOrt'larinin 74'den buyuk olup,olmadigini kontrol eden methodu yaziniz
-
+    // Task 01--> Tum universitelerin notOrt'larinin 74'den buyuk olup,olmadigini kontrol eden methodu yaziniz
     public static boolean notOrt74BykUnv(List<Univercity> unv) {
+
         return unv.
-                stream().
-                allMatch(t -> t.getNotOrt() > 74);
+                stream(). // akıs --> u01,u02,u03,u04,u05
+                allMatch(t -> t.getNotOrt() > 74); //allmatch() hepsini kontrol.Eder true-false dondurur.Method boolean
+                                                   //getNotOrt() methodunu univercity classindan Enc. ile getirdik.
     }
 
     // Task 02--> Universite'lerde herhangi birinde "hukuk" olup olmadigini  kontrol eden method yaziniz
-
     public static boolean hukukAra(List<Univercity> unv) {
 
         return unv.
                 stream().//Akıs basladı
-                anyMatch(t -> t.getBolum().//Objelerin bolum isimleri alındı
+                anyMatch(t -> t.getBolum().//getBolum() ile objelerin bolum isimleri alındı
                         toUpperCase().//Olası her ihtimale karsı kucuk harf yapıldı
-                        contains("Hukuk"));//Aranan bolum var mı diye kontrol edildi.
+                        contains("HUKUK"));//Aranan bolum icinde var mı diye kontrol edildi.
     }
 
-    // Task 03--> Universite'leri ogr sayilarina gore b -> k siralayiniz.
-
+    // Task 03--> Universite'leri ogr sayilarina gore buyukten kucuge doğru siralayiniz.
     public static List bKSirala(List<Univercity> unv) {
 
         return unv.
-                stream().
-                sorted(Comparator.comparing(Univercity::getOgrSayisi).reversed()).
-                collect(Collectors.toList());
+                stream().//akis saglandi
+                sorted(Comparator.comparing(Univercity::getOgrSayisi).reversed()).//tersten siralama yapildi
+                collect(Collectors.toList()); //Stream yapisi List yapisina donusturuldu
 
+          // collect() ile Methodu list olarak olusturdugumuz icin, akisi Stream yapidan List yapiya cevirdik.
     }
 
     // Task 04--> "Hukuk" bolumlerinin sayisini  print ediniz.
-
     public static int matBolumSayisi (List<Univercity> unv){
+
         return (int) unv.
                 stream().
                 filter(t->t.getBolum().equalsIgnoreCase("Hukuk")).
@@ -73,7 +79,6 @@ public class Lambda04 {
     }
 
     // Task 05--> Ogrenci sayilari 550'dan fazla olan universite'lerin en buyuk notOrt'unu bulunuz.
-
     public static OptionalInt notOrt(List<Univercity> unv){
 
         return unv.
@@ -85,12 +90,12 @@ public class Lambda04 {
 
     // Task 06--> Ogrenci sayilari 1050'dan az olan universite'lerin en kucuk notOrt'unu bulunuz.
     public static OptionalInt enKucukNotOrt(List<Univercity> unv){
+
         return unv.
                 stream().
                 filter(t->t.getOgrSayisi()<1050).
                 mapToInt(Univercity::getNotOrt).
                 min();
-
     }
 
 }

@@ -7,7 +7,8 @@ import java.util.List;
 public class Lambda01 {
 
     public static void main(String[] args) {
-        /*
+
+ /*
       1)  Lambda --> mathod create  etme değil mevcut method'ları(library)secip kullanmaktır...
           Lambda'lar sayesinde daha az kod ve hızlı geliştirme sağlanabilmektedir.
       2) "Functional Programming" de "Nasil yaparim?" degil "Ne yaparim?" dusunulur.
@@ -20,8 +21,7 @@ public class Lambda01 {
 
       * Lambda kullanirken mumkun mertebe "lambda expression"dan kacinilmasi önerilir.
       * Eger mumkunse "method referance" kullanilmasi tavsiye edilir.
-
-*/
+ */
         List<Integer> sayi = new ArrayList<>(Arrays.asList(34, 22, 16, 11, 35, 20, 63, 21, 65, 44, 66, 64, 81, 38, 15));
 
         printElStructured(sayi);
@@ -41,13 +41,12 @@ public class Lambda01 {
         printCiftOtzKckStructured(sayi);
         System.out.println("\n * * *");
         printCiftOtzBykFunctional(sayi);
-
-
     }
 
     //TASK  : "Structured Programming" kullanarak list elemanlarını aynı satirda
     //        aralarında bosluk olacak sekilde print ediniz.
     public static void printElStructured(List<Integer> sayi) {
+
         for (int w : sayi) {
             System.out.print(w + " ");
         }
@@ -56,7 +55,6 @@ public class Lambda01 {
 
     //TASK  : "Functional Programming" kullanarak list elemanlarını aynı satirda
     //        aralarında bosluk olacak sekilde print ediniz.
-
     public static void printElFunctional(List<Integer> degerler) {
 
         degerler.
@@ -72,7 +70,6 @@ public class Lambda01 {
     }
 
     // Kendimiz bir method olusturalim
-
     public static void yazdir(int a) {
         System.out.print(a + " ");
     }
@@ -89,8 +86,8 @@ public class Lambda01 {
 
     //TASK  : "Functional Programming" ile list elemanlarinin  cift olanlarini
     //        ayni satirda aralarina bosluk birakarak print ediniz.
-
     public static void printCiftElFunctional(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(t -> t % 2 == 0).//lambda expresision
@@ -102,6 +99,7 @@ public class Lambda01 {
         return a%2==0;
     }
     public static void printCiftElFunctional1(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(Lambda01::ciftBul).//method referance
@@ -110,8 +108,8 @@ public class Lambda01 {
 
     //TASK  : "Structured Programming" ile list elemanlarinin  cift olanlarini
     //        ayni satirda aralarina bosluk birakarak print ediniz.
-
     public static void printCiftElStructured(List<Integer> sayi) {
+
         for (int w : sayi) {
             if (w % 2 == 0) {
                 System.out.print(w + " ");
@@ -121,19 +119,19 @@ public class Lambda01 {
 
     //TASK : "Functional Programming" ile list elemanlarinin 34 den kucuk ve
     //       cift olanlarini ayni satirda aralarina bosluk birakarak print ediniz.
-
     public static void printCiftOtzKckFunctional(List<Integer> sayi) {
+
         sayi.
                 stream().
-//                filter(t -> t % 2 == 0 && t < 34).
+                // filter(t -> t % 2 == 0 && t < 34). --> Bu da bir yontem.
                 filter( t-> t<34 && t%2 == 0).
                 forEach(Lambda01::yazdir);
     }
 
     //TASK : "Structured Programming" ile list elemanlarinin 34 den kucuk ve
     //       cift olanlarini ayni satirda aralarina bosluk birakarak print ediniz
-
     public static void printCiftOtzKckStructured(List<Integer> sayi) {
+
         for (int w : sayi) {
             if (w < 34 && w % 2 == 0) {
                 System.out.print(w + " ");
@@ -143,8 +141,8 @@ public class Lambda01 {
 
     //TASK : "Functional Programming" ile list elemanlarinin 34 den buyuk veya
     //       cift olanlarini ayni satirda aralarina bosluk birakarak print ediniz.
-
     public static void printCiftOtzBykFunctional(List<Integer> sayi) {
+
         sayi.
                 stream().
                 filter(t -> t % 2 == 0 || t > 34).

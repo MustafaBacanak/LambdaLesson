@@ -99,20 +99,28 @@ public class Lambda03 {
     public static void enBuyukEleman(List<String> ikram) {
 
         Stream<String> sonHal = ikram.
-                stream().
-                sorted(Comparator.comparing(t -> t.toString().length()).reversed()).
-                limit(1);
-        System.out.println(Arrays.toString(sonHal.toArray()));
+                stream().// akıs                                        //Comparator.comparing stream getirir.
+                sorted(Comparator.comparing(t -> t.toString().length()).//Stream olarak geldiği icin toString ile stringe çevrildi.
+                        reversed()).//karakter sırasına gore tersten sıralandı.
 
+                limit(1);//limit içerisine verilen sayı kadar baştan başlayarak eleman getirir.
+                                // Stream dondürür o yüzden direk sout içine alınamaz.Limit üstüne gelerek uygun bir
+                                // konteynar'a koyduk daha sonra da bize array verdiği için stringe çevirerek okuttuk.
+
+        System.out.println(Arrays.toString(sonHal.toArray()));// Arrayi String yapıya çevirdik.
+
+        // limit() methodunun dönen degeri Stream<String> yapıdadır.
+        // sonHal.toArray() --> Stream olan akıs Array'e cevrildi
+        // Arrays.toString(sonHal.toArray()) --> Arrayi String yapıya çevirdik.
     }
 
     // Task-8 : list elemanlarini son harfine göre siralayıp ilk eleman hariç kalan elemanlari print ediniz.
     public static void ilkElHrcSonHrf(List<String> ikram) {
 
         ikram.
-                stream().
-                sorted(Comparator.comparing(t -> t.charAt(t.length() - 1))).
-                skip(1).
+                stream().//akis
+                sorted(Comparator.comparing(t -> t.charAt(t.length() - 1))).// son harfe gore alfabetik siralandi
+                skip(1). // Atla  --> kac eleman atlamak isterseniz skip() icerisine yazmalisiniz
                 forEach(Lambda01::yazdir);
     }
 }
