@@ -39,6 +39,8 @@ public class Lambda05 {
         return IntStream. // int değerlerde bir akış sağlar
                 range(1, x + 1). // range(a,b) --> a dan b'ye kadar ( b dahil değil) int değerler akısa alındı
                 sum();// akışdan gelen değerler toplandı
+
+
     }
 
     //TASK 02 --> 1'den x'e kadar cift tamsayilari toplayan bir program create ediniz.

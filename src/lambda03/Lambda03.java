@@ -23,6 +23,9 @@ public class Lambda03 {
         xIleBiten(menu);
         enBuyukEleman(menu);
         ilkElHrcSonHrf(menu);
+        System.out.println();
+        System.out.print("Odev Cozumu : \t");
+        abc(menu);
 
     }
 
@@ -122,5 +125,13 @@ public class Lambda03 {
                 sorted(Comparator.comparing(t -> t.charAt(t.length() - 1))).// son harfe gore alfabetik siralandi
                 skip(1). // Atla  --> kac eleman atlamak isterseniz skip() icerisine yazmalisiniz
                 forEach(Lambda01::yazdir);
+    }
+
+    //  ODEV : List elemanlarını son harfe göre sıralayıp, son 3 elemanı yazdırın
+    public static void abc(List<String> x){
+        x.stream().
+                sorted(Comparator.comparing(t->t.charAt(t.length()-1))).
+                skip(x.size()-3).
+                forEach(t-> System.out.print(t+" "));
     }
 }

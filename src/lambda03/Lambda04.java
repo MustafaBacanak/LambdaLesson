@@ -59,7 +59,7 @@ public class Lambda04 {
     }
 
     // Task 03--> Universite'leri ogr sayilarina gore buyukten kucuge doğru siralayiniz.
-    public static List bKSirala(List<Univercity> unv) {
+    public static List<Univercity> bKSirala(List<Univercity> unv) { //Uni'leri istedigi icin List<Univercity> yaptik
 
         return unv.
                 stream().//akis saglandi
@@ -72,10 +72,10 @@ public class Lambda04 {
     // Task 04--> "Hukuk" bolumlerinin sayisini  print ediniz.
     public static int matBolumSayisi (List<Univercity> unv){
 
-        return (int) unv.
-                stream().
-                filter(t->t.getBolum().equalsIgnoreCase("Hukuk")).
-                count();
+        return (int) unv. // count() methodu Long dondurur.O yuzden (int) yaparak type casting yapariz
+                stream(). //akis basladi
+                filter(t->t.getBolum().equalsIgnoreCase("Hukuk")).//Hukuk bolumu filtrelendi
+                count();//count() methodu secilen degerin sayisini verir.
     }
 
     // Task 05--> Ogrenci sayilari 550'dan fazla olan universite'lerin en buyuk notOrt'unu bulunuz.
@@ -84,8 +84,9 @@ public class Lambda04 {
         return unv.
                 stream().
                 filter(t->t.getOgrSayisi()>550).
-                mapToInt(Univercity::getNotOrt).
-                max();
+                mapToInt(Univercity::getNotOrt).//akisin int ile devam edeceginden eminsek mapToInt kullaniriz.
+                                                //mapToInt() ile kullanabilecegimiz yeni methodlar gelir.max()gibi
+                max();//belirtilen degerler arasindan en buyugunu verir. Optional deger dondurur.
     }
 
     // Task 06--> Ogrenci sayilari 1050'dan az olan universite'lerin en kucuk notOrt'unu bulunuz.
@@ -95,7 +96,7 @@ public class Lambda04 {
                 stream().
                 filter(t->t.getOgrSayisi()<1050).
                 mapToInt(Univercity::getNotOrt).
-                min();
+                min(); //belirtilen degerler arasindan en kucugunu verir. Optional dondurur.
     }
 
 }
